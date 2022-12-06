@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "599bd336-d96c-4ac9-be1b-3bdf09ee6e81",
+		"name": "SESP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21193147"
+	},
+	"item": [
+		{
+			"name": "SP",
+			"item": [
+				{
+					"name": "promuovi Pratica",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/sp/v1/pratica/promote/?id=&accepted=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"sp",
+								"v1",
+								"pratica",
+								"promote",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": ""
+								},
+								{
+									"key": "accepted",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "SE",
+			"item": [
+				{
+					"name": "mostra Pratica",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/se/v1/pratica/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"se",
+								"v1",
+								"pratica",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "documento Pratica",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/se/v1/pratica/file/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"se",
+								"v1",
+								"pratica",
+								"file",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new Pratica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "name",
+									"value": "user_name",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "user_surname",
+									"type": "text"
+								},
+								{
+									"key": "dateOfBirth",
+									"value": "1993/04/01",
+									"type": "text"
+								},
+								{
+									"key": "taxCode",
+									"value": "USERTAXCODEEXAMPLE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/se/v1/pratica/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"se",
+								"v1",
+								"pratica",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Pratica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "idPratica",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "user_name",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "user_surname",
+									"type": "text"
+								},
+								{
+									"key": "dateOfBirth",
+									"value": "1993/11/01",
+									"type": "text"
+								},
+								{
+									"key": "taxCode",
+									"value": "USERTAXCODEEXAMPLE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/se/v1/pratica/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"se",
+								"v1",
+								"pratica",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "admin",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
