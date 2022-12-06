@@ -19,7 +19,7 @@ public class PraticaRequestValidatorUnitTest {
             .surname("surname_test")
             .dateOfBirth(new Date())
             .taxCode("ABCDEFGHIL")
-            .file(new MockMultipartFile("file_test", new byte[]{}))
+            .file(new MockMultipartFile("file_test", "original_file_test", null, new byte[]{}))
             .build();
     //When
     PraticaRequestValidator.validatePraticaRequest(request);
@@ -29,6 +29,23 @@ public class PraticaRequestValidatorUnitTest {
   public void validatePraticaRequest_throw_exception_with_empty_request(){
     // Given
     var request = PraticaCreateRequest.builder().build();
+    //When
+    var expected = assertThrows(SespException.class, ()->PraticaRequestValidator.validatePraticaRequest(request));
+    //Then
+    assertNotNull(expected);
+  }
+
+  @Test
+  public void validatePraticaRequest_throw_exception_with_correct_request_but_blank_original_file_name(){
+    // Given
+    var request =
+        PraticaCreateRequest.builder()
+            .name("name_test")
+            .surname("surname_test")
+            .dateOfBirth(new Date())
+            .taxCode("ABCDEFGHIL")
+            .file(new MockMultipartFile("file_test", null, null, new byte[]{}))
+            .build();
     //When
     var expected = assertThrows(SespException.class, ()->PraticaRequestValidator.validatePraticaRequest(request));
     //Then
